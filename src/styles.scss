@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&display=swap');
+
+$gradient-top: linear-gradient(0deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-right: linear-gradient(90deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-bottom: linear-gradient(180deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-left: linear-gradient(270deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-top-right: linear-gradient(45deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-bottom-right: linear-gradient(135deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-top-left: linear-gradient(225deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-bottom-left: linear-gradient(315deg, #E1BDE6ff, #875E9Eff, #050201ff);
+$gradient-radial: radial-gradient(#E1BDE6ff, #875E9Eff, #050201ff);
+
+body {
+  --pink-lavender: rgba(255, 229, 254, 0.1);
+  --primary-color: #541e43;
+  --highlight-color: #005b41;
+  --black: #050201ff;
+
+  --font-size-huge: 3rem;
+  --font-size-big: 2rem;
+  --font-size-small: .75rem;
+  --font-size-normal: 1rem;
+
+  margin: 0;
+}
+
+* {
+  font-family: 'Noto Sans', sans-serif;
+
+  color: var(--primary-color);
+}
+
+
+h1 {
+  color: var(--highlight-color);
+}
+
+p {
+  color: var(--primary-color);
+}
