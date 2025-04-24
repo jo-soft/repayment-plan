@@ -1,59 +1,59 @@
 # RepaymentPlan
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+This project is an Angular-based application designed to calculate and display repayment plans for loans. It allows users to input loan details such as the amount, interest rates, and repayment rates, and generates a monthly repayment schedule.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Input loan details and generate repayment plans.
+- Displays repayment schedules with detailed breakdowns.
+- Built with zoneless-Angular.
 
-```bash
-ng serve
-```
+## Installation
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+To set up the project locally, follow these steps:
 
-## Code scaffolding
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/jo-soft/repayment-plan
+   cd RepaymentPlan
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Install dependencies**:
+   Ensure you have [Node.js](https://nodejs.org/)  19.X or newer and [npm](https://www.npmjs.com/) installed. Then run:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+3. **Start the development server**:
+   ```bash
+   npx ng serve
+   ```
+   Open your browser and navigate to `http://localhost:4200/`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Husky Commit Hooks
 
-```bash
-ng generate --help
-```
+This project uses [Husky](https://typicode.github.io/husky/) to enforce commit hooks for maintaining code quality. The hooks ensure that:
 
-## Building
+- Code is linted before committing.
+- Tests are run  before pushing to prevent breaking changes.
 
-To build the project run:
 
-```bash
-ng build
-```
+## Running Tests
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+To execute unit tests, use:
 
 ```bash
-ng e2e
+npx ng test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Because it's a toy project not every file is fully tested.
 
-## Additional Resources
+## Building the Project
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+To build the project for production, run:
+
+```bash
+npx ng build
+```
+
+The build artifacts will be stored in the `dist/` directory.
