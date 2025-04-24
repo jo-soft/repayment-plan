@@ -1,0 +1,47 @@
+@if(repayments.length){
+    <table>
+        <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Restschuld</th>
+            <th>Zinsen</th>
+            <th>Tilgung</th>
+            <th>Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+            @if(firstRow){
+                <tr>
+                    <td>{{ firstRow | dateOrDesc  }}</td>
+                    <td>{{ firstRow.remainingDebt | currency }}</td>
+                    <td>{{ firstRow.interest | currency }}</td>
+                    <td>{{ firstRow.repayment | currency }}</td>
+                    <td>{{ firstRow.rate | currency }}</td>
+                </tr>
+            }
+            @for( repayment of repayments; track repayment.date){
+                <tr>
+                    <td>{{ repayment.date | date }}</td>
+                    <td>{{ repayment.remainingDebt | currency }}</td>
+                    <td>{{ repayment.interest | currency }}</td>
+                    <td>{{ repayment.repayment | currency }}</td>
+                    <td>{{ repayment.rate | currency }}</td>
+                </tr>
+            }
+            @if(lastRow){
+                <tr>
+                    <td>{{ lastRow | dateOrDesc  }}</td>
+                    <td>{{ lastRow.remainingDebt | currency }}</td>
+                    <td>{{ lastRow.interest | currency }}</td>
+                    <td>{{ lastRow.repayment | currency }}</td>
+                    <td>{{ lastRow.rate | currency }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+} @else {
+    <p>
+        Keine Rückzahlungen vorhanden. Bitte Formular ausfüllen.
+    </p>
+}

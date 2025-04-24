@@ -11,10 +11,12 @@ $gradient-bottom-left: linear-gradient(315deg, #E1BDE6ff, #875E9Eff, #050201ff);
 $gradient-radial: radial-gradient(#E1BDE6ff, #875E9Eff, #050201ff);
 
 body {
-  --pink-lavender: rgba(255, 229, 254, 0.1);
-  --primary-color: #541e43;
-  --highlight-color: #005b41;
-  --black: #050201ff;
+  --color-primary: #541e43;
+  --color-highlight: #005b41;
+  --color-alert: #AA0F22;
+  --color-black: #050201ff;
+  --color-white: #f4f4f4;
+  --color-snow-drift: #f9f9f9;
 
   --font-size-huge: 3rem;
   --font-size-big: 2rem;
@@ -27,14 +29,18 @@ body {
 * {
   font-family: 'Noto Sans', sans-serif;
 
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 
 h1 {
-  color: var(--highlight-color);
+  color: var(--color-highlight);
 }
 
 p {
-  color: var(--primary-color);
+  color: var(--color-primary);
+}
+
+input {
+  border-color: transparent;
 }

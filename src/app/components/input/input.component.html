@@ -1,0 +1,23 @@
+<div class="control-container" [ngClass]="{'has-error': formControl.invalid}">
+    <label>
+        {{ label}}
+    </label>
+    <!-- workaround for https://github.com/angular/angular/issues/13243 -->
+    @if(type === 'number'){
+        <input
+                type="number"
+                [name]="formControlName"
+                [formControl]="formControl"
+        />
+    } @else {
+        <input
+                [type]="type"
+                [name]="formControlName"
+                [formControl]="formControl"
+        />
+    }
+
+    @if(errorMessage){
+        <div [innerHTML]="errorMessage" class="control-validation-error"></div>
+    }
+</div>
