@@ -35,7 +35,9 @@ export class FormComponent {
   @Output() public readonly valuesChanged: Observable<IContractDetails | null> = this.form.valueChanges.pipe(
       map(
           (value: TForm["value"]): IContractDetails | null => {
-            const isValid: boolean = !!value.amount && !!value.normalInterestRate && !!value.repaymentRate && !!value.fixedInterestRate
+            const isValid: boolean = Object.values(value).every(
+                (formValue: number | null): boolean => formValue !== null
+            );
             return  isValid ? value as IContractDetails : null;
           }
       ),
