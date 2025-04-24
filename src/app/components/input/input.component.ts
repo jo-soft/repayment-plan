@@ -8,6 +8,10 @@ import {
 import {TInputValidationErrorMessages} from "./input.types";
 import {CommonModule} from "@angular/common";
 
+
+type TOnTouchFn = Parameters<ControlValueAccessor['registerOnTouched']>
+type TOnChangeFn = Parameters<ControlValueAccessor['registerOnChange']>
+
 @Component({
   selector: 'app-input',
   imports: [
@@ -33,10 +37,6 @@ export class InputComponent implements ControlValueAccessor{
 
   @ViewChild(FormControlDirective, {static: false}) formControlDirective: FormControlDirective | null = null;
 
-  private readonly controlContainer: FormGroupDirective =  inject(FormGroupDirective, {
-    skipSelf: true
-  });
-
   public get errorMessage(): string | null {
     if (!this.formControl.errors || !this.validationMessages) {
       return null;
@@ -48,20 +48,29 @@ export class InputComponent implements ControlValueAccessor{
     return this.filterMessagesByCode(errorMessages, errorCodes, this.formControl.touched)[0] || null;
   }
 
-
   public get formControl(): FormControl {
     return  this.controlContainer.form.controls[this.formControlName] as FormControl;
   }
 
-  public registerOnTouched(fn: any): void {
+  public get formControlId(): string {
+    return `${this.formControlName}-${this.seed}`;
+  }
+
+  private readonly seed: number = Date.now();
+
+  private readonly controlContainer: FormGroupDirective =  inject(FormGroupDirective, {
+    skipSelf: true
+  });
+
+  public registerOnTouched(fn: TOnTouchFn): void {
     this.formControlDirective?.valueAccessor?.registerOnTouched(fn);
   }
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: TOnChangeFn): void {
     this.formControlDirective?.valueAccessor?.registerOnChange(fn);
   }
 
-  public writeValue(obj: any): void {
+  public writeValue(obj: unknown): void {
     this.formControlDirective?.valueAccessor?.writeValue(obj);
   }
 

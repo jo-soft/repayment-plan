@@ -1,16 +1,18 @@
 <div class="control-container" [ngClass]="{'has-error': formControl.invalid}">
-    <label>
+    <label [for]="formControlId">
         {{ label}}
     </label>
     <!-- workaround for https://github.com/angular/angular/issues/13243 -->
     @if(type === 'number'){
         <input
+                [id]="formControlId"
                 type="number"
                 [name]="formControlName"
                 [formControl]="formControl"
         />
     } @else {
         <input
+                [id]="formControlId"
                 [type]="type"
                 [name]="formControlName"
                 [formControl]="formControl"
